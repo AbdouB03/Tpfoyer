@@ -1,10 +1,11 @@
-package tn.esprit.firstSBProject.Entity;
+package tn.esprit.tpfoyer.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tn.esprit.tpfoyer.entity.Foyer;
 
 import java.util.List;
 
@@ -15,10 +16,10 @@ import java.util.List;
 @Entity
 public class Universite {
     @Id
-    private Long idUniversite;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idUniversite; // Primary key
 
     private String nomUniversite;
-    private String adresse;
 
     @OneToMany(mappedBy = "universite", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Foyer> foyers;

@@ -1,12 +1,12 @@
-package tn.esprit.firstSBProject.Entity;
+package tn.esprit.tpfoyer.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tn.esprit.tpfoyer.entity.Reservation;
 
-import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,13 +16,11 @@ import java.util.List;
 @Entity
 public class Etudiant {
     @Id
-    private long idEtudiant;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idEtudiant; // Primary key
 
-    private String nomEt;
-    private String prenomEt;
-    private Long cIn;
-    private String ecole;
-    private Date dateNaissance;
+    private String nom;
+    private String prenom;
 
     @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reservation> reservations;

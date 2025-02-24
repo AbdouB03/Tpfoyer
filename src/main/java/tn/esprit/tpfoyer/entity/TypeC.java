@@ -1,4 +1,4 @@
-package tn.esprit.firstSBProject.Entity;
+package tn.esprit.tpfoyer.entity;
 
 public enum TypeC {
     SINGLE,

@@ -1,4 +1,4 @@
-package tn.esprit.firstSBProject.Entity;
+package tn.esprit.tpfoyer.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

@@ -1,10 +1,11 @@
-package tn.esprit.firstSBProject.Entity;
+package tn.esprit.tpfoyer.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import tn.esprit.tpfoyer.entity.Chambre;
 
 import java.util.List;
 
@@ -15,13 +16,13 @@ import java.util.List;
 @Entity
 public class Bloc {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idBloc;
 
     private String nomBloc;
-    private Long capaciteBloc;
 
     @ManyToOne
-    @JoinColumn(name = "idFoyer")
+    @JoinColumn(name = "idFoyer", referencedColumnName = "idFoyer") // Foreign key reference
     private Foyer foyer;
 
     @OneToMany(mappedBy = "bloc", cascade = CascadeType.ALL, fetch = FetchType.LAZY)

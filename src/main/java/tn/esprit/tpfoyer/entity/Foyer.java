@@ -1,5 +1,4 @@
-package tn.esprit.firstSBProject.Entity;
-
+package tn.esprit.tpfoyer.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,13 +15,14 @@ import java.util.List;
 @Entity
 public class Foyer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idFoyer;
 
     private String nomFoyer;
     private Long capaciteFoyer;
 
     @ManyToOne
-    @JoinColumn(name = "idUniversite")
+    @JoinColumn(name = "idUniversite", referencedColumnName = "idUniversite")
     private Universite universite;
 
     @OneToMany(mappedBy = "foyer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
